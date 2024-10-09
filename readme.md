@@ -2,6 +2,8 @@
 
 This project is designed to automatically add a digest and other helpful information to documents uploaded to a Google Cloud Storage (GCS) bucket, using the Groq API for summarization and text processing, as well as Google Cloud Platform services such as Pub/Sub and Cloud Storage.
 
+![alt text](example.png)
+
 ## Overview
 - Google Cloud Storage: Stores documents that are uploaded.
 - Google Cloud Pub/Sub: Sends notifications when a new file is uploaded to the bucket.
