@@ -28,7 +28,7 @@ def download_blob(bucket_name, file_name):
         messages=[
             {
                 "role": "user",
-                "content": "I want you to to return a summary of the following text and nothing else: " + file_content[0:7000],
+                "content": "I want you to to return a summary of the following text and a table of contents: " + file_content[0:7000],
             }
         ],
         model="llama3-8b-8192",
