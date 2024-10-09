@@ -1,19 +1,19 @@
-# Groq Cloud Storage Autosummarizer
+# Groq Cloud Document Digester
 
-This project is designed to automatically append a summary to any document uploaded to a Google Cloud Storage (GCS) bucket, using the Groq API for summarization and Google Cloud Platform services such as Pub/Sub and Cloud Storage.
+This project is designed to automatically add a digest and other helpful information to documents uploaded to a Google Cloud Storage (GCS) bucket, using the Groq API for summarization and text processing, as well as Google Cloud Platform services such as Pub/Sub and Cloud Storage.
 
 ## Overview
 - Google Cloud Storage: Stores documents that are uploaded.
 - Google Cloud Pub/Sub: Sends notifications when a new file is uploaded to the bucket.
-- Groq API: Processes the content of the document to generate a concise summary using the LLaMA model.
-- Google Cloud Functions: Responds to Pub/Sub messages, downloads the document, and then appends a summary to the document.
+- Groq API: Processes the content of the document to quickly generate a concise summary, table of contents, and other broad information using the LLaMA model.
+- Google Cloud Functions: Responds to Pub/Sub messages, downloads the document, and then appends the digest to the document.
 
 ## Workflow
 1. Upload Document: A user uploads a document to the designated Google Cloud Storage bucket.
 2. Pub/Sub Notification: Once the document is uploaded, a Pub/Sub message is triggered, notifying the subscriber (the Python script) about the new file.
 3. Download Document: The script retrieves the document from the GCS bucket.
-4. Summarize: The document content is passed to the Groq API, which processes the text and returns a summary.
-5. Output: The summary is appended back to the document. It can also be stored separately.
+4. Create Digest: The document content is passed to the Groq API, which processes the text and returns a summary, table of contents, and other relevant information.
+5. Output: The digest is appended back to the document. It can also be stored separately.
 
 ## Setup Instructions
 
@@ -31,7 +31,7 @@ This project is designed to automatically append a summary to any document uploa
 5. Set the environment variable to point to your GCP service account credentials.
 
 ## Outcomes
-The application successfully demonstrates how to integrate high-performance AI models (via Groq) with cloud infrastructure to create a robust document summarization pipeline.
+The application successfully demonstrates how to integrate high-performance AI models (via Groq) with cloud infrastructure to create a robust document processing pipeline.
 The system can scale across multiple documents and handle real-time uploads, making it a valuable tool for processing and summarizing large text-based datasets.
 
 ## Future Improvements
@@ -41,8 +41,7 @@ Initially, the system struggled with very large documents due to the limitations
 
 ### Advanced NLP
 Further features could include entity extraction, keyword generation, or multi-document summarization for more complex datasets.
-### Cloud Function Deployment
-This entire process can be moved to Google Cloud Functions for serverless execution, reducing the need for a long-running script.
+
 
 ## Conclusion
 This project highlights the powerful combination of Google Cloud Platform's scalability and the speed of the Groq API for machine learning tasks like text summarization. With further improvements, this architecture can be expanded into a production-level system capable of handling large volumes of data with minimal latency.
